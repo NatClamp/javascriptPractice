@@ -27,6 +27,19 @@ function uniqueValues(items) {
 }
 
 // This function removes duplicates from an array
-function removeDupes(items) {}
+function removeDupes(items) {
+  return items
+    .reduce((acc, item) => {
+      if (!acc.includes(item)) acc.push(item);
+      return acc;
+    }, [])
+    .sort();
+}
 
-module.exports = { totalValues, tallyIntoObject, flattenArray, uniqueValues };
+module.exports = {
+  totalValues,
+  tallyIntoObject,
+  flattenArray,
+  uniqueValues,
+  removeDupes
+};

@@ -3,7 +3,8 @@ const {
   totalValues,
   tallyIntoObject,
   flattenArray,
-  uniqueValues
+  uniqueValues,
+  removeDupes
 } = require("../reduce");
 
 describe("totalValues", () => {
@@ -84,5 +85,34 @@ describe("uniqueValues", () => {
     const input = [1, 2, 1, 3, 5, 5, 7];
     uniqueValues(input);
     expect(input).to.eql([1, 2, 1, 3, 5, 5, 7]);
+  });
+});
+
+describe("removeDupes", () => {
+  it("returns an array", () => {
+    const actual = removeDupes([1, 2, 1, 2, 3, 5, 4, 5, 3, 4, 4, 4, 4]);
+    expect(actual).to.be.an("array");
+  });
+  it("returns an array of numbers with duplicates removed", () => {
+    const actual = removeDupes([1, 2, 1, 2, 3, 5, 4, 5, 3, 4, 4, 4, 4]);
+    const expected = [1, 2, 3, 4, 5];
+    expect(actual).to.be.eql(expected);
+  });
+  it("returns an array of strings with duplicates removed", () => {
+    const input = ["Llama", "Alpaca", "Sheep", "Alpaca", "Llama", "Camel"];
+    const expected = ["Alpaca", "Camel", "Llama", "Sheep"];
+    expect(removeDupes(input)).to.be.eql(expected);
+  });
+  it("does not mutate the original array", () => {
+    const input = ["Llama", "Alpaca", "Sheep", "Alpaca", "Llama", "Camel"];
+    removeDupes(input);
+    expect(input).to.be.eql([
+      "Llama",
+      "Alpaca",
+      "Sheep",
+      "Alpaca",
+      "Llama",
+      "Camel"
+    ]);
   });
 });
