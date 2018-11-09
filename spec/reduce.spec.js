@@ -1,5 +1,10 @@
 const { expect } = require("chai");
-const { totalValues, tallyIntoObject } = require("../reduce");
+const {
+  totalValues,
+  tallyIntoObject,
+  flattenArray,
+  uniqueValues
+} = require("../reduce");
 
 describe("totalValues", () => {
   it("returns a number", () => {
@@ -34,8 +39,37 @@ describe("tallyIntoObject", () => {
   it("returns an object", () => {
     expect(actual).to.be.an("object");
   });
-  it.skip("returns a tally of number of occurences of each key", () => {
+  it("returns a tally of number of occurences of each key", () => {
     const expected = { Llama: 2, Alpaca: 2, Sheep: 1, Camel: 1 };
     expect(actual).to.eql(expected);
   });
+});
+
+describe("flattenArray", () => {
+  it("returns an array", () => {
+    expect(flattenArray([[1, 2], [3, 4]])).to.be.an("array");
+  });
+  it("flattens an array of arrays containing numbers into a single array", () => {
+    const input = [[0, 1], [2, 3], [4, 5]];
+    expect(flattenArray(input)).to.eql([0, 1, 2, 3, 4, 5]);
+  });
+  it("flattens an array of arrays containing strings into a single array", () => {
+    const input = [
+      ["hello", "world"],
+      ["is", "it me"],
+      ["you're", "looking for?"]
+    ];
+    expect(flattenArray(input)).to.eql([
+      "hello",
+      "world",
+      "is",
+      "it me",
+      "you're",
+      "looking for?"
+    ]);
+  });
+});
+
+describe("", () => {
+  it("", () => {});
 });

@@ -13,4 +13,14 @@ function tallyIntoObject(items) {
   }, {});
 }
 
-module.exports = { totalValues, tallyIntoObject };
+// This function will flatten an array of nested arrays!
+function flattenArray(items) {
+  return items.reduce((acc, item) => {
+    return acc.concat(item);
+  }, []);
+}
+
+// This function will identify unique values
+function uniqueValues(items) {}
+
+module.exports = { totalValues, tallyIntoObject, flattenArray, uniqueValues };
