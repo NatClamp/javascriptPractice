@@ -1,5 +1,5 @@
 const { expect } = require("chai");
-const { totalValues } = require("../reduce");
+const { totalValues, tallyIntoObject } = require("../reduce");
 
 describe("totalValues", () => {
   it("returns a number", () => {
@@ -16,5 +16,26 @@ describe("totalValues", () => {
     const input = [876, 654, 321, 987];
     totalValues(input);
     expect(input).to.eql([876, 654, 321, 987]);
+  });
+});
+
+describe("tallyIntoObject", () => {
+  let actual;
+  beforeEach(() => {
+    actual = tallyIntoObject([
+      "Llama",
+      "Alpaca",
+      "Sheep",
+      "Alpaca",
+      "Llama",
+      "Camel"
+    ]);
+  });
+  it("returns an object", () => {
+    expect(actual).to.be.an("object");
+  });
+  it.skip("returns a tally of number of occurences of each key", () => {
+    const expected = { Llama: 2, Alpaca: 2, Sheep: 1, Camel: 1 };
+    expect(actual).to.eql(expected);
   });
 });
