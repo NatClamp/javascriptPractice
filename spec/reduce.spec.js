@@ -70,6 +70,19 @@ describe("flattenArray", () => {
   });
 });
 
-describe("", () => {
-  it("", () => {});
+describe("uniqueValues", () => {
+  it("returns an array", () => {
+    const actual = uniqueValues([1, 2, 1, 3, 5, 5, 7]);
+    expect(actual).to.be.an("array");
+  });
+  it("returns an array of the unique numbers from the original array", () => {
+    const actual = uniqueValues([1, 2, 1, 3, 5, 5, 7]);
+    const expected = [2, 3, 7];
+    expect(actual).to.eql(expected);
+  });
+  it("does not mutate the original array", () => {
+    const input = [1, 2, 1, 3, 5, 5, 7];
+    uniqueValues(input);
+    expect(input).to.eql([1, 2, 1, 3, 5, 5, 7]);
+  });
 });
