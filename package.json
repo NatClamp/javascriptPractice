@@ -1,0 +1,14 @@
+{
+  "name": "block-review",
+  "version": "1.0.0",
+  "description": "",
+  "main": "reduce.js",
+  "scripts": {
+    "test": "mocha spec"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.2.0"
+  }
+}
