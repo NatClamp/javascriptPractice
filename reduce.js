@@ -36,6 +36,9 @@ function removeDupes(items) {
     .sort();
 }
 
+//function finds the difference between two arrays
+function arrayDifference(items) {}
+
 module.exports = {
   totalValues,
   tallyIntoObject,
