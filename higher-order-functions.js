@@ -4,21 +4,51 @@ hof.identity = function(value) {
   return value;
 };
 
-hof.identityf = function() {};
+//  hof.identity = (value) => value;
 
-hof.add = function() {};
+hof.identityf = function(value) {
+  return function() {
+    return value;
+  };
+};
 
-hof.sub = function() {};
+// hof.identityf = value => () => value;
 
-hof.mul = function() {};
+hof.add = function(x, y) {
+  return x + y;
+};
 
-hof.addf = function() {};
+hof.sub = function(x, y) {
+  return x - y;
+};
 
-hof.liftf = function() {};
+hof.mul = function(x, y) {
+  return x * y;
+};
 
-hof.curry = function() {};
+hof.addf = function(x) {
+  return function(y) {
+    return hof.add(x, y);
+  };
+};
 
-hof.inc = function() {};
+hof.liftf = function(func) {
+  return function(x) {
+    return function(y) {
+      return func(x, y);
+    };
+  };
+};
+
+hof.curry = function(func, arg1) {
+  return function(arg2) {
+    return func(arg1, arg2);
+  };
+};
+
+hof.inc = function(num) {
+  return hof.add(num, 1);
+};
 
 hof.twice = function() {};
 

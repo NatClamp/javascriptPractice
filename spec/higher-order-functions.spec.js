@@ -1,6 +1,6 @@
 const { expect } = require("chai");
 const sinon = require("sinon");
-const hof = require("../index");
+const hof = require("../higher-order-functions");
 
 describe("Higher Order Functions", () => {
   describe.only("Identity Functions", () => {
@@ -98,7 +98,7 @@ describe("Higher Order Functions", () => {
   });
 
   describe("Unary Functions", () => {
-    describe.only("twice", () => {
+    describe("twice", () => {
       it("returns a function on first invocation", () => {
         const double = hof.twice(hof.add);
         expect(double).to.be.a("function");
