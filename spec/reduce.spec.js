@@ -4,7 +4,8 @@ const {
   tallyIntoObject,
   flattenArray,
   uniqueValues,
-  removeDupes
+  removeDupes,
+  arrayDifference
 } = require("../reduce");
 
 describe("totalValues", () => {
@@ -114,5 +115,23 @@ describe("removeDupes", () => {
       "Llama",
       "Camel"
     ]);
+  });
+});
+
+describe("arrayDifference", () => {
+  it("returns an array", () => {
+    let actual = arrayDifference([1, 2, 3], [3, 4, 5, 1]);
+    expect(actual).to.be.an("array");
+  });
+  it("returns an array of items that only occur in one of the arrays", () => {
+    let actual = arrayDifference([1, 2, 3], [3, 4, 5, 1]);
+    expect(actual).to.be.eql([2, 4, 5]);
+  });
+  it("doesn't mutate either of the original arrays", () => {
+    const inputArr1 = [33, 56, 76, 21, 34];
+    const inputArr2 = [33, 76, 21, 98];
+    arrayDifference(inputArr1, inputArr2);
+    expect(inputArr1).to.eql([33, 56, 76, 21, 34]);
+    expect(inputArr2).to.eql([33, 76, 21, 98]);
   });
 });

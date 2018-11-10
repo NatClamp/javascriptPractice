@@ -37,12 +37,19 @@ function removeDupes(items) {
 }
 
 //function finds the difference between two arrays
-function arrayDifference(items) {}
+function arrayDifference(array1, array2) {
+  const bigArr = array1.concat(array2);
+  return bigArr.reduce((acc, item) => {
+    if (bigArr.indexOf(item) === bigArr.lastIndexOf(item)) acc.push(item);
+    return acc;
+  }, []);
+}
 
 module.exports = {
   totalValues,
   tallyIntoObject,
   flattenArray,
   uniqueValues,
-  removeDupes
+  removeDupes,
+  arrayDifference
 };
