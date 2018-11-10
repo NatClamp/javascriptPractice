@@ -50,17 +50,50 @@ hof.inc = function(num) {
   return hof.add(num, 1);
 };
 
-hof.twice = function() {};
+hof.twice = function(func) {
+  return function(x) {
+    return func(x, x);
+  };
+};
 
-hof.composeu = function() {};
+hof.composeu = function(func1, func2) {
+  return function(x) {
+    let y = func1(x);
+    return func2(y);
+  };
+};
 
-hof.composeb = function() {};
+hof.composeb = function(func1, func2) {
+  return function(x, y, z) {
+    let result = func1(x, y);
+    return func2(result, z);
+  };
+};
 
-hof.limit = function() {};
+hof.limit = function(func, num) {
+  let counter = 0;
+  return function(x, y) {
+    ++counter;
+    if (counter <= num) {
+      return func(x, y);
+    }
+  };
+};
 
-hof.from = function() {};
+hof.from = function(x) {
+  let counter = x;
+  return function() {
+    return counter++;
+  };
+};
 
-hof.to = function() {};
+hof.to = function(func, val) {
+  let result = 0;
+  return function(x) {
+    result = func(x);
+    if (result < val) return result;
+  };
+};
 
 hof.fromTo = function() {};
 

@@ -97,7 +97,7 @@ describe("Higher Order Functions", () => {
     });
   });
 
-  describe("Unary Functions", () => {
+  describe.only("Unary Functions", () => {
     describe("twice", () => {
       it("returns a function on first invocation", () => {
         const double = hof.twice(hof.add);
@@ -167,7 +167,7 @@ describe("Higher Order Functions", () => {
     });
   });
 
-  describe("Generator Functions", () => {
+  describe.only("Generator Functions", () => {
     describe("from", () => {
       it("returns a function on first invocation", () => {
         const index = hof.from();
