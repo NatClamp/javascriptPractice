@@ -95,9 +95,22 @@ hof.to = function(func, val) {
   };
 };
 
-hof.fromTo = function() {};
+hof.fromTo = function(x, y) {
+  let counter = x;
+  return function() {
+    if (counter < y) return counter++;
+  };
+};
 
-hof.element = function() {};
+hof.element = function(arr, func) {
+  let count = 0;
+  return function() {
+    let curr = func ? func() : count++;
+    for (let i = 0; i < arr.length; i++) {
+      if (i === curr) return arr[i];
+    }
+  };
+};
 
 hof.collect = function() {};
 
