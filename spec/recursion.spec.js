@@ -82,7 +82,7 @@ describe.only("sumUntilOneDig", () => {
   });
 });
 
-describe("reversedString", () => {
+describe.only("reversedString", () => {
   it("returns a string", () => {
     const actual = reversedString("");
     expect(actual).to.be.a("string");

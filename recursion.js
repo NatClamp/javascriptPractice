@@ -28,7 +28,10 @@ function sumUntilOneDig(num) {
   return result < 10 ? result : sumUntilOneDig(result);
 }
 
-function reversedString() {}
+function reversedString(str) {
+  if (str === "") return "";
+  return str.slice(-1) + reversedString(str.slice(0, -1));
+}
 
 function countZeros() {}
 
