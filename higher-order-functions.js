@@ -112,9 +112,20 @@ hof.element = function(arr, func) {
   };
 };
 
-hof.collect = function() {};
+hof.collect = function(func, array) {
+  return function() {
+    let curr = func();
+    if (curr !== undefined) array.push(curr);
+    return curr;
+  };
+};
 
-hof.filter = function() {};
+hof.filter = function(func, predicate) {
+  return function() {
+    let curr = func();
+    if (predicate(curr) === true) return curr;
+  };
+};
 
 hof.concat = function() {};
 

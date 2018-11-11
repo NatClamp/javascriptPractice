@@ -247,7 +247,7 @@ describe("Higher Order Functions", () => {
         expect(ele()).to.be.equal("The Giant");
       });
     });
-    describe("collect", () => {
+    describe.only("collect", () => {
       it("returns a function", () => {
         expect(hof.collect()).to.be.a("function");
       });
@@ -272,7 +272,7 @@ describe("Higher Order Functions", () => {
         expect(list).to.eql([0, 1, 2]);
       });
     });
-    describe("filter", () => {
+    describe.only("filter", () => {
       it("returns a function", () => {
         expect(hof.filter()).to.be.a("function");
       });
