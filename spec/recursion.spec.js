@@ -49,7 +49,7 @@ describe.only("whiteSpace", () => {
   });
 });
 
-describe("isPalindrome", () => {
+describe.only("isPalindrome", () => {
   it("returns a boolean", () => {
     const actual = isPalindrome("");
     expect(actual).to.be.a("boolean");
