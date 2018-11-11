@@ -62,7 +62,7 @@ describe.only("isPalindrome", () => {
   });
 });
 
-describe("sumUntilOneDig", () => {
+describe.only("sumUntilOneDig", () => {
   it("returns a number", () => {
     const actual = sumUntilOneDig(10);
     expect(actual).to.be.a("number");

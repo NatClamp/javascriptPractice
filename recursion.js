@@ -20,7 +20,13 @@ function isPalindrome(str) {
   return isPalindrome(str.slice(1, str.length - 1));
 }
 
-function sumUntilOneDig() {}
+function sumUntilOneDig(num) {
+  let result = num
+    .toString()
+    .split("")
+    .reduce((acc, num) => acc + parseInt(num), 0);
+  return result < 10 ? result : sumUntilOneDig(result);
+}
 
 function reversedString() {}
 
