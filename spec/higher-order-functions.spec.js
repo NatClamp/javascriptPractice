@@ -304,7 +304,7 @@ describe("Higher Order Functions", () => {
         expect(fil()).to.equal(undefined);
       });
     });
-    describe("concat", () => {
+    describe.only("concat", () => {
       it("returns a function", () => {
         const con = hof.concat(hof.fromTo(0, 3), hof.fromTo(0, 2));
         expect(con).to.be.a("function");

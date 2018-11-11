@@ -127,7 +127,14 @@ hof.filter = function(func, predicate) {
   };
 };
 
-hof.concat = function() {};
+hof.concat = function(func1, func2) {
+  return function() {
+    if (!func2) return func1();
+    let res = func1();
+    if (res === undefined) return func2();
+    return res;
+  };
+};
 
 hof.gensymf = function() {};
 
