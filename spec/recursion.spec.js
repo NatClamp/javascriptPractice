@@ -94,7 +94,7 @@ describe.only("reversedString", () => {
   });
 });
 
-describe("countZeros", () => {
+describe.only("countZeros", () => {
   it("returns a number", () => {
     const actual = countZeros("");
     expect(actual).to.be.a("number");

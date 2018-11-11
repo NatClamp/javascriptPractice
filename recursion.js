@@ -33,7 +33,12 @@ function reversedString(str) {
   return str.slice(-1) + reversedString(str.slice(0, -1));
 }
 
-function countZeros() {}
+function countZeros(arr) {
+  if (!arr.length) return 0;
+  let newStr = arr.reduce((acc, num) => acc + num.toString(), "");
+  let count = newStr.slice(0, 1) === "0" ? 1 : 0;
+  return count + countZeros(newStr.split("").slice(1));
+}
 
 function max() {}
 
