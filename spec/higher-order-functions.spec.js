@@ -3,7 +3,7 @@ const sinon = require("sinon");
 const hof = require("../higher-order-functions");
 
 describe("Higher Order Functions", () => {
-  describe.only("Identity Functions", () => {
+  describe("Identity Functions", () => {
     describe("identity", () => {
       it("returns the first value passed as an argument", () => {
         expect(hof.identity(3)).to.equal(3);
@@ -33,7 +33,7 @@ describe("Higher Order Functions", () => {
     });
   });
 
-  describe.only("Binary Operations", () => {
+  describe("Binary Operations", () => {
     describe("add", () => {
       it("returns total of the two arguments", () => {
         expect(hof.add(56, 5)).to.be.equal(56 + 5);
@@ -52,7 +52,7 @@ describe("Higher Order Functions", () => {
     });
   });
 
-  describe.only("Functions with multiple invocations", () => {
+  describe("Functions with multiple invocations", () => {
     describe("addf", () => {
       it("returns a function on first invocation", () => {
         expect(hof.addf(3)).to.be.a("function");
@@ -97,7 +97,7 @@ describe("Higher Order Functions", () => {
     });
   });
 
-  describe.only("Unary Functions", () => {
+  describe("Unary Functions", () => {
     describe("twice", () => {
       it("returns a function on first invocation", () => {
         const double = hof.twice(hof.add);
@@ -167,7 +167,7 @@ describe("Higher Order Functions", () => {
     });
   });
 
-  describe.only("Generator Functions", () => {
+  describe("Generator Functions", () => {
     describe("from", () => {
       it("returns a function on first invocation", () => {
         const index = hof.from();
@@ -334,8 +334,8 @@ describe("Higher Order Functions", () => {
     });
   });
 
-  describe.only("gensym Functions", () => {
-    describe.only("gensymf", () => {
+  describe("gensym Functions", () => {
+    describe("gensymf", () => {
       it("returns a function on first invocation", () => {
         expect(hof.gensymf("A")).to.be.a("function");
       });
