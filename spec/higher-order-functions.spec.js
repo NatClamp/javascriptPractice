@@ -228,7 +228,7 @@ describe("Higher Order Functions", () => {
         expect(index()).to.be.undefined;
       });
     });
-    describe.only("element", () => {
+    describe("element", () => {
       it("on first invocation will return a function", () => {
         const ele = hof.element([], hof.fromTo(0, 1));
         expect(ele).to.be.a("function");
@@ -247,7 +247,7 @@ describe("Higher Order Functions", () => {
         expect(ele()).to.be.equal("The Giant");
       });
     });
-    describe.only("collect", () => {
+    describe("collect", () => {
       it("returns a function", () => {
         expect(hof.collect()).to.be.a("function");
       });
@@ -272,7 +272,7 @@ describe("Higher Order Functions", () => {
         expect(list).to.eql([0, 1, 2]);
       });
     });
-    describe.only("filter", () => {
+    describe("filter", () => {
       it("returns a function", () => {
         expect(hof.filter()).to.be.a("function");
       });
@@ -304,7 +304,7 @@ describe("Higher Order Functions", () => {
         expect(fil()).to.equal(undefined);
       });
     });
-    describe.only("concat", () => {
+    describe("concat", () => {
       it("returns a function", () => {
         const con = hof.concat(hof.fromTo(0, 3), hof.fromTo(0, 2));
         expect(con).to.be.a("function");
@@ -334,8 +334,8 @@ describe("Higher Order Functions", () => {
     });
   });
 
-  describe("gensym Functions", () => {
-    describe("gensymf", () => {
+  describe.only("gensym Functions", () => {
+    describe.only("gensymf", () => {
       it("returns a function on first invocation", () => {
         expect(hof.gensymf("A")).to.be.a("function");
       });

@@ -136,9 +136,21 @@ hof.concat = function(func1, func2) {
   };
 };
 
-hof.gensymf = function() {};
+hof.gensymf = function(letter) {
+  let count = 0;
+  return function() {
+    return letter + count++;
+  };
+};
 
-hof.gensymff = function() {};
+hof.gensymff = function(func, seed) {
+  return function(letter) {
+    return function() {
+      let count = func(seed);
+      return letter + count;
+    };
+  };
+};
 
 hof.counter = function() {};
 
